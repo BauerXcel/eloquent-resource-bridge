@@ -154,7 +154,7 @@ abstract class RestResource
      */
     public function find($entityId)
     {
-        return Cache::remember($this->getCacheKey($entityId), $this->getRememberFor(), function () use ($entityId) {
+        return \Cache::remember($this->getCacheKey($entityId), $this->getRememberFor(), function () use ($entityId) {
             $result = json_decode($this->sendGET($this->getViewEndpointUrl($entityId), $this->query)->getBody(), true);
             $data = $this->parseItem($result);
             $collection = Collection::make($data);
@@ -170,7 +170,7 @@ abstract class RestResource
      */
     public function get()
     {
-        return Cache::remember($this->getCacheKey(), $this->getRememberFor(), function () {
+        return \Cache::remember($this->getCacheKey(), $this->getRememberFor(), function () {
 
             $result = json_decode($this->sendGET($this->getIndexEndpointUrl(), $this->query)->getBody(), true);
             $collection = collect($this->parseCollection($result));
