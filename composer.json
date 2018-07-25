@@ -17,5 +17,12 @@
     "psr-4": {
       "PaulKnebel\\EloquentResourceBridge\\": "src/"
     }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "5.6"
+    }
   }
 }
