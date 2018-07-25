@@ -154,7 +154,7 @@ abstract class RestResource
      */
     public function find($entityId)
     {
-        return \Cache::remember($this->getCacheKey($entityId), $this->getRememberFor(), function () use ($entityId) {
+        return \Cache::remember($this->getCacheKey($entityId, 'find'), $this->getRememberFor(), function () use ($entityId) {
             $result = json_decode($this->sendGET($this->getViewEndpointUrl($entityId), $this->query)->getBody(), true);
             $data = $this->parseItem($result);
             $collection = Collection::make($data);
@@ -170,7 +170,13 @@ abstract class RestResource
      */
     public function get()
     {
-        return \Cache::remember($this->getCacheKey(), $this->getRememberFor(), function () {
+        // Ensure query order is normalised, which will help all layers of caching identify similarities
+        ksort($this->query, SORT_STRING);
+
+        // Determine unique key
+        $cacheIdentifier = 'get:' . $this->getIndexEndpointUrl() . '?' . http_build_query($this->query);
+
+        return \Cache::remember($this->getCacheKey($cacheIdentifier), $this->getRememberFor(), function () {
 
             $result = json_decode($this->sendGET($this->getIndexEndpointUrl(), $this->query)->getBody(), true);
             $collection = collect($this->parseCollection($result));
@@ -277,7 +283,7 @@ abstract class RestResource
     protected function getCacheKey($additional = '')
     {
         // Namespace the hash so we can flush it if needed
-        $prefix = 'resource:' . get_class($this) . ($additional ? ':' . $additional : '') . '/';
+        $prefix = 'resource:' . get_class($this) . ($additional ? ':' . $additional : '') ;
 
         if ($this->cacheKey !== null) {
             return $prefix . $this->cacheKey;
