@@ -154,7 +154,7 @@ abstract class RestResource
      */
     public function find($entityId)
     {
-        return \Cache::remember($this->getCacheKey($entityId, 'find'), $this->getRememberFor(), function () use ($entityId) {
+        return \Cache::remember($this->getCacheKey('find:'.$entityId), $this->getRememberFor(), function () use ($entityId) {
             $result = json_decode($this->sendGET($this->getViewEndpointUrl($entityId), $this->query)->getBody(), true);
             $data = $this->parseItem($result);
             $collection = Collection::make($data);
