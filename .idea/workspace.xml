@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1183a529-6502-4bde-beb8-42096384dd4f" name="Default" comment="Removed trailing slash of default cache key before distribution">
+    <list default="true" id="1183a529-6502-4bde-beb8-42096384dd4f" name="Default" comment="Updated library meta information">
       <change beforePath="$PROJECT_DIR$/.idea/Package: Resource Bridge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Package: Resource Bridge.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RestResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/RestResource.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,86 +33,71 @@
     <session id="688506563">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="1" />
-          <entry key="php" value="2" />
+          <entry key="md" value="2" />
+          <entry key="php" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PHP" value="4" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="json" value="4" />
-          <entry key="php" value="320" />
-          <entry key="txt" value="164" />
+          <entry key="md" value="27" />
+          <entry key="php" value="938" />
+          <entry key="txt" value="272" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="320" />
-          <entry key="PLAIN_TEXT" value="164" />
+          <entry key="PHP" value="938" />
+          <entry key="PLAIN_TEXT" value="299" />
           <entry key="composer.json" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="5" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/composer.json">
+        <entry file="file://$PROJECT_DIR$/src/RestResource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="920">
+              <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="305" selection-end-column="12" />
+              <folding>
+                <element signature="e#185#218#0#PHP" expanded="true" />
+                <element signature="e#5499#5639#0#PHP" expanded="true" />
+                <element signature="e#7702#7988#0#PHP" expanded="true" />
+                <element signature="e#10397#10429#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/vendor/illuminate/cache/Repository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="596">
+              <caret line="167" column="33" lean-forward="true" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.lock">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RestResource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/RestResource.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="179" selection-start-line="179" selection-end-line="179" />
-              <folding>
-                <element signature="e#7844#8130#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="1056">
+              <caret line="44" column="119" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -124,6 +109,11 @@
       <find>getcache</find>
       <find>getcachekey</find>
       <find>'find'</find>
+      <find>laravel.log</find>
+      <find>\Cache::remember</find>
+      <find>getcacheservice</find>
+      <find>cache</find>
+      <find>cache::</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,8 +123,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/RestResource.php" />
-        <option value="$PROJECT_DIR$/src/RestResource.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/RestResource.php" />
       </list>
     </option>
   </component>
@@ -167,38 +158,41 @@
     <option name="height" value="1893" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="eloquent-resource-bridge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eloquent-resource-bridge" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Package: eloquent-resource-brige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eloquent-resource-bridge" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="eloquent-resource-bridge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eloquent-resource-bridge" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Package: eloquent-resource-brige" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Package: eloquent-resource-brige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eloquent-resource-bridge" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Package: eloquent-resource-brige" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Package: eloquent-resource-brige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eloquent-resource-bridge" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Package: eloquent-resource-brige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eloquent-resource-bridge" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="illuminate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Package: eloquent-resource-brige" type="b2602c69:ProjectViewProjectNode" />
+              <item name="eloquent-resource-bridge" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="illuminate" type="462c0819:PsiDirectoryNode" />
+              <item name="cache" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +234,9 @@
       <workItem from="1524734678262" duration="9000" />
       <workItem from="1532530055533" duration="11000" />
       <workItem from="1532530082280" duration="7000" />
-      <workItem from="1532530092205" duration="931000" />
+      <workItem from="1532530092205" duration="1716000" />
+      <workItem from="1532533627865" duration="2620000" />
+      <workItem from="1532595664692" duration="2286000" />
     </task>
     <task id="LOCAL-00001" summary="Cache key improvements">
       <created>1532530981755</created>
@@ -249,21 +245,42 @@
       <option name="project" value="LOCAL" />
       <updated>1532530981755</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated library meta information">
+      <created>1532531044939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532531044939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Bugfix">
+      <created>1532534069048</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532534069048</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Reverted cache key logic - was not needed">
+      <created>1532534221707</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532534221707</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1822000" />
+    <option name="totallyTimeSpent" value="7513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1200" height="1893" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.28756475" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28756475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32968834" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32968834" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -273,7 +290,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Code Review" order="10" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32750136" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.74904317" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -293,21 +310,28 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed trailing slash of default cache key before distribution" />
     <MESSAGE value="Cache key improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cache key improvements" />
+    <MESSAGE value="Updated library meta information" />
+    <MESSAGE value="Bugfix" />
+    <MESSAGE value="Reverted cache key logic - was not needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reverted cache key logic - was not needed" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RestResource.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        <state relative-caret-position="281">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -316,20 +340,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/RestResource.php">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="179" selection-start-line="179" selection-end-line="179" />
-          <folding>
-            <element signature="e#7844#8130#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="1056">
+          <caret line="44" column="119" selection-start-line="44" selection-start-column="119" selection-end-line="44" selection-end-column="119" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/vendor/illuminate/cache/Repository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="596">
+          <caret line="167" column="33" lean-forward="true" selection-start-line="167" selection-start-column="33" selection-end-line="167" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/RestResource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="920">
+          <caret line="303" column="17" selection-start-line="303" selection-start-column="17" selection-end-line="305" selection-end-column="12" />
+          <folding>
+            <element signature="e#185#218#0#PHP" expanded="true" />
+            <element signature="e#5499#5639#0#PHP" expanded="true" />
+            <element signature="e#7702#7988#0#PHP" expanded="true" />
+            <element signature="e#10397#10429#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

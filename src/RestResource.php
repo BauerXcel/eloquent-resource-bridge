@@ -7,6 +7,9 @@ use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Collection;
 use Illuminate\Cache\Repository as Cache;
 
+/**
+ * @property  cache Cache
+ */
 abstract class RestResource
 {
 
@@ -55,6 +58,7 @@ abstract class RestResource
     public function __construct()
     {
         $this->setHttpClient(new Client());
+        $this->setCacheService(new Cache());
     }
 
     /**
@@ -154,12 +158,18 @@ abstract class RestResource
      */
     public function find($entityId)
     {
-        return \Cache::remember($this->getCacheKey('find'), $this->getRememberFor(), function () use ($entityId) {
-            $result = json_decode($this->sendGET($this->getViewEndpointUrl($entityId), $this->query)->getBody(), true);
-            $data = $this->parseItem($result);
-            $collection = Collection::make($data);
-            return $this->applyPostFilters($collection);
-        });
+        $cacheKey = $this->getCacheKey('find');
+        if(!($results = $this->getCacheService()->get($cacheKey, null))) {
+            return $results;
+        }
+
+        $result = json_decode($this->sendGET($this->getViewEndpointUrl($entityId), $this->query)->getBody(), true);
+        $data = $this->parseItem($result);
+        $collection = Collection::make($data);
+        $results = $this->applyPostFilters($collection);
+
+        $this->getCacheService()->put($cacheKey, $this->getRememberFor(), $results);
+        return $results;
     }
 
 
@@ -170,16 +180,20 @@ abstract class RestResource
      */
     public function get()
     {
+        $cacheKey = $this->getCacheKey('get');
+        if(!($response = $this->getCacheService()->get($cacheKey, null))) {
+            return $response;
+        }
+
         // Ensure query order is normalised, which will help all layers of caching identify similarities
         ksort($this->query, SORT_STRING);
 
-        return \Cache::remember($this->getCacheKey('get'), $this->getRememberFor(), function () {
+        $response = json_decode($this->sendGET($this->getIndexEndpointUrl(), $this->query)->getBody(), true);
+        $collection = collect($this->parseCollection($response));
+        $collection = $this->applyPostFilters($collection);
 
-            $result = json_decode($this->sendGET($this->getIndexEndpointUrl(), $this->query)->getBody(), true);
-            $collection = collect($this->parseCollection($result));
-
-            return $this->applyPostFilters($collection);
-        });
+        $this->getCacheService()->put($cacheKey, $this->getRememberFor(), $collection);
+        return $collection;
     }
 
     /**
@@ -287,9 +301,9 @@ abstract class RestResource
         }
 
         return $prefix . md5(json_encode([
-                'included' => (array) $this->included,
-                'query' => (array) $this->query,
-            ]));
+            'included' => (array) $this->included,
+            'query' => (array) $this->query,
+        ]));
     }
 
 
@@ -365,6 +379,19 @@ abstract class RestResource
     public function getHttpClient()
     {
         return $this->httpClient;
+    }
+
+    public function setCacheService(Cache $cache)
+    {
+        $this->cache = $cache;
+    }
+
+    /**
+     * @return Cache
+     */
+    public function getCacheService()
+    {
+        return $this->cache;
     }
 
     public function getRememberFor()
