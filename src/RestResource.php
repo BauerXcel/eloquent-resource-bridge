@@ -201,7 +201,7 @@ abstract class RestResource
         $collection = collect($this->parseCollection($response));
         $collection = $this->applyPostFilters($collection);
 
-        if(!!$this->getCache()) {
+        if((bool) $this->getCache()) {
             $this->getCache()->put($cacheKey, $collection, $this->getRememberFor());
         }
 
