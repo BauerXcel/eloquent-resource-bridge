@@ -5,13 +5,12 @@ namespace PaulKnebel\EloquentResourceBridge;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Collection;
-use Illuminate\Cache\Repository as Cache;
+use Illuminate\Contracts\Cache\Repository as Cache;
 
-/**
- * @property  cache Cache
- */
 abstract class RestResource
 {
+    /** @var Cache  Optional cache object */
+    private $cache = null;
 
     /** @var string Primary Key of entity */
     protected $primaryKey;
@@ -54,11 +53,17 @@ abstract class RestResource
      *  - Caching Layer
      *  - Parsing Layer
      * RestResource constructor.
+     * @param Client|null $client
+     * @param Cache|null $cache
      */
-    public function __construct()
+    public function __construct(Client $client = null, Cache $cache = null)
     {
-        $this->setHttpClient(new Client());
-        $this->setCacheService(new Cache());
+        $client = $client === null ? new Client() : $client;
+        $this->setHttpClient($client);
+
+        if($cache !== null) {
+            $this->setCache($cache);
+        }
     }
 
     /**
@@ -159,7 +164,7 @@ abstract class RestResource
     public function find($entityId)
     {
         $cacheKey = $this->getCacheKey('find');
-        if(!($results = $this->getCacheService()->get($cacheKey, null))) {
+        if((bool) $this->getCache() && !!($results = $this->getCache()->get($cacheKey, null))) {
             return $results;
         }
 
@@ -168,7 +173,10 @@ abstract class RestResource
         $collection = Collection::make($data);
         $results = $this->applyPostFilters($collection);
 
-        $this->getCacheService()->put($cacheKey, $this->getRememberFor(), $results);
+        if((bool) $this->getCache()) {
+            $this->getCache()->put($cacheKey, $this->getRememberFor(), $results);
+        }
+
         return $results;
     }
 
@@ -181,7 +189,8 @@ abstract class RestResource
     public function get()
     {
         $cacheKey = $this->getCacheKey('get');
-        if(!($response = $this->getCacheService()->get($cacheKey, null))) {
+
+        if((bool) $this->getCache() && !!($response = $this->getCache()->get($cacheKey, null))) {
             return $response;
         }
 
@@ -192,7 +201,10 @@ abstract class RestResource
         $collection = collect($this->parseCollection($response));
         $collection = $this->applyPostFilters($collection);
 
-        $this->getCacheService()->put($cacheKey, $this->getRememberFor(), $collection);
+        if(!!$this->getCache()) {
+            $this->getCache()->put($cacheKey, $collection, $this->getRememberFor());
+        }
+
         return $collection;
     }
 
@@ -300,10 +312,10 @@ abstract class RestResource
             return $prefix . $this->cacheKey;
         }
 
-        return $prefix . md5(json_encode([
-            'included' => (array) $this->included,
-            'query' => (array) $this->query,
-        ]));
+        return $prefix . ':'. md5(json_encode([
+                'included' => (array) $this->included,
+                'query' => (array) $this->query,
+            ]));
     }
 
 
@@ -381,7 +393,7 @@ abstract class RestResource
         return $this->httpClient;
     }
 
-    public function setCacheService(Cache $cache)
+    public function setCache(Cache $cache)
     {
         $this->cache = $cache;
     }
@@ -389,7 +401,7 @@ abstract class RestResource
     /**
      * @return Cache
      */
-    public function getCacheService()
+    public function getCache()
     {
         return $this->cache;
     }
