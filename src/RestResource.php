@@ -163,7 +163,7 @@ abstract class RestResource
      */
     public function find($entityId)
     {
-        $cacheKey = $this->getCacheKey('find');
+        $cacheKey = $this->getCacheKey('find:'.$entityId);
         if((bool) $this->getCache() && !!($results = $this->getCache()->get($cacheKey, null))) {
             return $results;
         }
@@ -189,9 +189,8 @@ abstract class RestResource
     public function get()
     {
         $cacheKey = $this->getCacheKey('get');
-
         if((bool) $this->getCache() && !!($response = $this->getCache()->get($cacheKey, null))) {
-            return $response;
+            return $this->applyPostFilters($response);
         }
 
         // Ensure query order is normalised, which will help all layers of caching identify similarities
@@ -199,13 +198,12 @@ abstract class RestResource
 
         $response = json_decode($this->sendGET($this->getIndexEndpointUrl(), $this->query)->getBody(), true);
         $collection = collect($this->parseCollection($response));
-        $collection = $this->applyPostFilters($collection);
 
         if((bool) $this->getCache()) {
             $this->getCache()->put($cacheKey, $collection, $this->getRememberFor());
         }
 
-        return $collection;
+        return $this->applyPostFilters($collection);
     }
 
     /**
@@ -306,16 +304,20 @@ abstract class RestResource
     protected function getCacheKey($additional = '')
     {
         // Namespace the hash so we can flush it if needed
-        $prefix = 'resource:' . get_class($this) . ($additional ? ':' . $additional : '') ;
+        $prefix = 'resource:' . get_class($this) . ($additional ? ':' . $additional : '');
 
         if ($this->cacheKey !== null) {
             return $prefix . $this->cacheKey;
         }
 
-        return $prefix . ':'. md5(json_encode([
+        // @note placing "post_filters" here will mean the request itself isn't cache
+        // ... which is more important to cache than the post-processing
+        $cacheKey = $prefix . ':'. md5(json_encode([
                 'included' => (array) $this->included,
                 'query' => (array) $this->query,
             ]));
+
+        return $cacheKey;
     }
 
 
