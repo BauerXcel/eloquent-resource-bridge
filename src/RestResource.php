@@ -233,7 +233,7 @@ abstract class RestResource
             $endpointUrl .= (strpos($endpointUrl, '?') === false ? '?' : '&') . http_build_query($query);
         }
 
-        return $this->httpClient->request('GET', $endpointUrl);
+        return $this->getHttpClient()->request('GET', $endpointUrl);
     }
 
     /**
@@ -244,7 +244,7 @@ abstract class RestResource
     protected function sendPOST($endpointUrl, array $query)
     {
         $this->rememberFor = null; // POST should not be cached
-        return $this->httpClient->request('POST', [
+        return $this->getHttpClient()->request('POST', [
             RequestOptions::FORM_PARAMS => $query,
         ]);
     }
