@@ -174,7 +174,7 @@ abstract class RestResource
         $results = $this->applyPostFilters($collection);
 
         if((bool) $this->getCache()) {
-            $this->getCache()->put($cacheKey, $this->getRememberFor(), $results);
+            $this->getCache()->put($cacheKey, $results, $this->getRememberFor());
         }
 
         return $results;
@@ -263,7 +263,7 @@ abstract class RestResource
      * @param $entityId
      * @return string
      */
-    private function getViewEndpointUrl($entityId)
+    public function getViewEndpointUrl($entityId)
     {
         return $this->getIndexEndpointUrl() . '/' . $entityId;
     }
