@@ -1,5 +1,5 @@
 {
-  "name": "paulknebel/eloquent-resource-bridge",
+  "name": "bauerxcel/eloquent-resource-bridge",
   "license": "mit",
   "description": "Add ability to treat RESTful resources like Eloquent resources",
   "authors": [
@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "PaulKnebel\\EloquentResourceBridge\\": "src/"
+      "BauerXcel\\EloquentResourceBridge\\": "src/"
     }
   },
   "config": {

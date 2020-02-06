@@ -18,7 +18,7 @@ The goal is to treat RESTful resources (of any shape) in a similar way to Eloque
 ```php
 namespace App\Resources;
 
-use PaulKnebel\EloquentResourceBridge\RestResource;
+use BauerXcel\EloquentResourceBridge\RestResource;
 use Illuminate\Support\Collection;
 
 class MyResource extends RestResource

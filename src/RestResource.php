@@ -1,6 +1,6 @@
 <?php
 
-namespace PaulKnebel\EloquentResourceBridge;
+namespace BauerXcel\EloquentResourceBridge;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
